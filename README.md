@@ -1,6 +1,6 @@
 # Análise de Padrões de Movimento dos Clientes com Internet das Coisas (IoT) para Otimização de Vendas no Varejo
 
-Este repositório contém os detalhes e informações sobre o projeto "Análise de padrões de movimento dos clientes com o uso de Internet das Coisas para otimização de vendas no varejo com foco em crescimento econômico e inovação da indústria", desenvolvido por Luke Magalhães, Luis Augusto Marques, Gustavo Rodrigues e Guilherme Yonamine, alunos da Universidade Presbiteriana Mackenzie (UPM), localizada em São Paulo, Brasil sob a orientação do professor Wallace Santana.
+Este repositório contém os detalhes e informações sobre o projeto "Análise de padrões de movimento dos clientes com o uso de Internet das Coisas para otimização de vendas no varejo com foco em crescimento econômico e inovação da indústria", desenvolvido por Luke Magalhães, Luis Augusto Marques, Gustavo Rodrigues e Guilherme Yonamine, alunos da Universidade Presbiteriana Mackenzie (UPM), localizada em São Paulo, Brasil, sob a orientação do professor Wallace Santana.
 
 ## Resumo do Projeto
 
