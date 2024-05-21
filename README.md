@@ -20,10 +20,6 @@ O objetivo deste projeto é revolucionar a maneira como as empresas entendem e s
 3. **Resultados**: Apresentação dos resultados obtidos durante o desenvolvimento do projeto.
 4. **Conclusões**: Conclusões finais e considerações sobre o projeto.
 
-## Como Contribuir
-
-Se você tem interesse em contribuir com este projeto, sinta-se à vontade para abrir uma issue ou enviar um pull request. Todas as contribuições são bem-vindas!
-
 ## Autores
 
 - Luke Magalhães
