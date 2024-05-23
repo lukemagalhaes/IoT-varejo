@@ -21,10 +21,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 330,
-        "y": 180,
+        "y": 280,
         "wires": [
             [
-                "d889c86314b9caa2"
+                "2d8ea7295067d519"
             ]
         ]
     },
@@ -41,8 +41,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 620,
-        "y": 240,
+        "x": 1660,
+        "y": 100,
         "wires": []
     },
     {
@@ -58,49 +58,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 340,
-        "y": 300,
+        "x": 320,
+        "y": 340,
         "wires": [
             [
-                "54ef4466dd256a7f"
+                "2d8ea7295067d519"
             ]
         ]
-    },
-    {
-        "id": "54ef4466dd256a7f",
-        "type": "influxdb out",
-        "z": "e7fea22c6db80f6b",
-        "influxdb": "fb41385a812c568e",
-        "name": "",
-        "measurement": "Temperatura_01",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "IoT",
-        "bucket": "sensor",
-        "x": 660,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "d889c86314b9caa2",
-        "type": "influxdb out",
-        "z": "e7fea22c6db80f6b",
-        "influxdb": "fb41385a812c568e",
-        "name": "",
-        "measurement": "Distancia_01",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "IoT",
-        "bucket": "sensor",
-        "x": 650,
-        "y": 180,
-        "wires": []
     },
     {
         "id": "4026bf68f525b48f",
@@ -116,10 +80,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 330,
-        "y": 140,
+        "y": 160,
         "wires": [
             [
-                "f78f3f94cde6721a"
+                "f29c0fcf1917120d"
             ]
         ]
     },
@@ -136,31 +100,13 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 340,
-        "y": 360,
+        "x": 320,
+        "y": 100,
         "wires": [
             [
-                "0bcad1b7c32bb093"
+                "f29c0fcf1917120d"
             ]
         ]
-    },
-    {
-        "id": "f78f3f94cde6721a",
-        "type": "influxdb out",
-        "z": "e7fea22c6db80f6b",
-        "influxdb": "fb41385a812c568e",
-        "name": "",
-        "measurement": "Distancia_02",
-        "precision": "",
-        "retentionPolicy": "",
-        "database": "database",
-        "precisionV18FluxV20": "ms",
-        "retentionPolicyV18Flux": "",
-        "org": "IoT",
-        "bucket": "sensor",
-        "x": 650,
-        "y": 140,
-        "wires": []
     },
     {
         "id": "0bcad1b7c32bb093",
@@ -168,7 +114,7 @@
         "z": "e7fea22c6db80f6b",
         "influxdb": "fb41385a812c568e",
         "name": "",
-        "measurement": "Temperatura_02",
+        "measurement": "Pessoas_02",
         "precision": "",
         "retentionPolicy": "",
         "database": "database",
@@ -176,8 +122,341 @@
         "retentionPolicyV18Flux": "",
         "org": "IoT",
         "bucket": "sensor",
-        "x": 660,
-        "y": 360,
+        "x": 1250,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "8002f1bf320d5470",
+        "type": "function",
+        "z": "e7fea22c6db80f6b",
+        "name": "verificar pessoa",
+        "func": "var mensagem1 = msg.payload[0];\nvar mensagem2 = msg.payload[1];\n\nlet value = msg.payload;  // Supondo que o valor numérico está em msg.payload\nif (mensagem1 > 35 && mensagem2 < 300) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 140,
+        "wires": [
+            [
+                "3144de0a613219a2"
+            ]
+        ]
+    },
+    {
+        "id": "f29c0fcf1917120d",
+        "type": "join",
+        "z": "e7fea22c6db80f6b",
+        "name": "junção",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 540,
+        "y": 140,
+        "wires": [
+            [
+                "8002f1bf320d5470"
+            ]
+        ]
+    },
+    {
+        "id": "3144de0a613219a2",
+        "type": "rbe",
+        "z": "e7fea22c6db80f6b",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 870,
+        "y": 140,
+        "wires": [
+            [
+                "cf9829c46df6815e"
+            ]
+        ]
+    },
+    {
+        "id": "cf9829c46df6815e",
+        "type": "function",
+        "z": "e7fea22c6db80f6b",
+        "name": " cronometrar",
+        "func": "let startTime = context.get('startTime') || null;\n\nif (msg.payload === true) {\n    startTime = Date.now();\n    context.set('startTime', startTime);\n    return null;\n} else if (msg.payload === false) {\n    if (startTime) {\n        let endTime = Date.now();\n        let elapsedTime = (endTime - startTime) / 1000;\n        msg.payload = elapsedTime;\n        context.set('startTime', null);\n        return msg;\n    } else {\n        return null;\n    }\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 140,
+        "wires": [
+            [
+                "eca9dd23f42c9a75",
+                "0bcad1b7c32bb093",
+                "d7349d2e3b6f5232"
+            ]
+        ]
+    },
+    {
+        "id": "275bf02d537be0b9",
+        "type": "node-red-contrib-whatsapp-cmb-send-message",
+        "z": "e7fea22c6db80f6b",
+        "name": "",
+        "credtype": "account",
+        "account": "72887b40949a37b0",
+        "text": "payload",
+        "phonenumbervalue": "",
+        "apikeyvalue": "",
+        "apikeyinputtypemessage": "msg",
+        "phonenumberinputtypemessage": "msg",
+        "inputtypemessage": "msg",
+        "rejectssl": false,
+        "x": 1440,
+        "y": 100,
+        "wires": [
+            [
+                "22543a357ce369f1"
+            ]
+        ]
+    },
+    {
+        "id": "eca9dd23f42c9a75",
+        "type": "function",
+        "z": "e7fea22c6db80f6b",
+        "name": "contar pessoas",
+        "func": "let count = context.get('count') || 0;\n\ncount += 1;\ncontext.set('count', count);\n\nif (count >= 5) {\n    msg.payload = 'ATENÇÃO: 5 pessoas passaram e olharam a vitrine 02';\n    context.set('count', 0);\n    return msg;\n} else {\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 100,
+        "wires": [
+            [
+                "275bf02d537be0b9"
+            ]
+        ]
+    },
+    {
+        "id": "2d8ea7295067d519",
+        "type": "join",
+        "z": "e7fea22c6db80f6b",
+        "name": "junção",
+        "mode": "custom",
+        "build": "array",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 540,
+        "y": 300,
+        "wires": [
+            [
+                "446512c2d77a4333"
+            ]
+        ]
+    },
+    {
+        "id": "446512c2d77a4333",
+        "type": "function",
+        "z": "e7fea22c6db80f6b",
+        "name": "verificar pessoa",
+        "func": "var mensagem1 = msg.payload[0];\nvar mensagem2 = msg.payload[1];\n\nlet value = msg.payload;  // Supondo que o valor numérico está em msg.payload\nif (mensagem1 > 35 && mensagem2 < 300) {\n    msg.payload = true;\n} else {\n    msg.payload = false;\n}\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 720,
+        "y": 300,
+        "wires": [
+            [
+                "5befa373fe6c3b63"
+            ]
+        ]
+    },
+    {
+        "id": "5befa373fe6c3b63",
+        "type": "rbe",
+        "z": "e7fea22c6db80f6b",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 870,
+        "y": 300,
+        "wires": [
+            [
+                "d3fd5e28fe14c2c2"
+            ]
+        ]
+    },
+    {
+        "id": "d3fd5e28fe14c2c2",
+        "type": "function",
+        "z": "e7fea22c6db80f6b",
+        "name": "cronometrar",
+        "func": "let startTime = context.get('startTime') || null;\n\nif (msg.payload === true) {\n    startTime = Date.now();\n    context.set('startTime', startTime);\n    return null;\n} else if (msg.payload === false) {\n    if (startTime) {\n        let endTime = Date.now();\n        let elapsedTime = (endTime - startTime) / 1000;\n        msg.payload = elapsedTime;\n        context.set('startTime', null);\n        return msg;\n    } else {\n        return null;\n    }\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1030,
+        "y": 300,
+        "wires": [
+            [
+                "c47acf99c75536e7",
+                "6cb7191a869f7937",
+                "ef1596707008af97"
+            ]
+        ]
+    },
+    {
+        "id": "c47acf99c75536e7",
+        "type": "function",
+        "z": "e7fea22c6db80f6b",
+        "name": "contar pessoas",
+        "func": "let count = context.get('count') || 0;\n\ncount += 1;\ncontext.set('count', count);\n\nif (count >= 5) {\n    msg.payload = 'ATENÇÃO: 5 pessoas passaram e olharam a vitrine 01';\n    context.set('count', 0);\n    return msg;\n} else {\n    return null;\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1220,
+        "y": 340,
+        "wires": [
+            [
+                "80be2fa69193521c"
+            ]
+        ]
+    },
+    {
+        "id": "80be2fa69193521c",
+        "type": "node-red-contrib-whatsapp-cmb-send-message",
+        "z": "e7fea22c6db80f6b",
+        "name": "",
+        "credtype": "account",
+        "account": "72887b40949a37b0",
+        "text": "payload",
+        "phonenumbervalue": "",
+        "apikeyvalue": "",
+        "apikeyinputtypemessage": "msg",
+        "phonenumberinputtypemessage": "msg",
+        "inputtypemessage": "msg",
+        "rejectssl": false,
+        "x": 1440,
+        "y": 340,
+        "wires": [
+            [
+                "159743f566962295"
+            ]
+        ]
+    },
+    {
+        "id": "159743f566962295",
+        "type": "debug",
+        "z": "e7fea22c6db80f6b",
+        "name": "debug projeto",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1660,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6cb7191a869f7937",
+        "type": "debug",
+        "z": "e7fea22c6db80f6b",
+        "name": "debug projeto",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1420,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d7349d2e3b6f5232",
+        "type": "debug",
+        "z": "e7fea22c6db80f6b",
+        "name": "debug projeto",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1440,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ef1596707008af97",
+        "type": "influxdb out",
+        "z": "e7fea22c6db80f6b",
+        "influxdb": "fb41385a812c568e",
+        "name": "",
+        "measurement": "Pessoas_01",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "IoT",
+        "bucket": "sensor",
+        "x": 1250,
+        "y": 260,
         "wires": []
     },
     {
@@ -225,5 +504,10 @@
         "url": "https://us-east-1-1.aws.cloud2.influxdata.com/",
         "timeout": "10",
         "rejectUnauthorized": false
+    },
+    {
+        "id": "72887b40949a37b0",
+        "type": "node-red-contrib-whatsapp-cmb-account",
+        "name": "Teste"
     }
 ]
