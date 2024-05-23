@@ -8,10 +8,9 @@ O objetivo deste projeto é revolucionar a maneira como as empresas entendem e s
 
 ## Conteúdo do Repositório
 
-- **`Artigo.pdf`**: Documento detalhando o projeto, incluindo introdução, materiais e métodos, resultados e conclusões.
-- **`Referências`**: Pasta contendo referências bibliográficas utilizadas no projeto.
-- **`Código`**: Pasta contendo o código fonte ou exemplos de implementação, se aplicável.
-- **`Imagens`**: Pasta contendo imagens utilizadas no documento ou relacionadas ao projeto.
+- **`artigo.pdf`**: Documento detalhando o projeto, incluindo introdução, materiais e métodos, resultados e conclusões.
+- **`referencias`**: Pasta contendo referências bibliográficas utilizadas no projeto.
+- **`instancias`**: Pasta contendo o código fonte ou exemplos de implementação, se aplicável.
 
 ## Estrutura do Artigo
 
