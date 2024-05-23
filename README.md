@@ -9,7 +9,6 @@ O objetivo deste projeto é revolucionar a maneira como as empresas entendem e s
 ## Conteúdo do Repositório
 
 - **`artigo.pdf`**: Documento detalhando o projeto, incluindo introdução, materiais e métodos, resultados e conclusões.
-- **`referencias`**: Pasta contendo referências bibliográficas utilizadas no projeto.
 - **`instancias`**: Pasta contendo o código fonte ou exemplos de implementação.
 - **`node-red.json`**: Arquivo com configurações do Node-RED.
 
