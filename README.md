@@ -39,3 +39,5 @@ Para mais informações ou dúvidas sobre o projeto, entre em contato com os aut
 ---
 
 Este projeto visa promover a inovação no varejo, impulsionando o crescimento econômico e contribuindo para a consecução dos Objetivos de Desenvolvimento Sustentável da ONU. Agradecemos pelo interesse e apoio ao nosso trabalho!
+
+## Vídeo de apresentação: https://youtu.be/HQ4CnpTDcrc
